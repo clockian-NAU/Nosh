@@ -6,6 +6,7 @@ class Recipe(models.Model):
 	title = models.CharField(max_length=200)
 	ingredients = models.TextField()
 	instructions = models.TextField()
+	photo = models.ImageField()
 	created_date = models.DateTimeField(default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
 

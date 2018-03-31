@@ -9,6 +9,7 @@
 			<h1><a href="{% url 'recipe_detail' pk=recipe.pk %}">{{ recipe.title }}</a></h1>
 			<p>{{ recipe.ingredients|linebreaksbr }}</p>
 			<p>{{ recipe.instructions|linebreaksbr }}</p>
+			<img src={{ recipe.photo }}>
 		</div>
 	{% endfor %}
 {% endblock %}

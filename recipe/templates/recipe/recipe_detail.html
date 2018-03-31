@@ -13,5 +13,6 @@
 		<h1>{{ recipe.title }}</h1>
 		<p>{{ recipe.ingredients|linebreaksbr }}</p>
 		<p>{{ recipe.instructions|linebreaksbr }}</p>
+		<img src={{ recipe.photo }}>
 	</div>
 {% endblock %}
