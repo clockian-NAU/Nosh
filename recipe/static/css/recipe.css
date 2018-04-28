@@ -8,6 +8,7 @@
 	color: #ffffff;
 	font-size: 36pt;
 	text-decoration: none;
+	display: inline-block;
 }
 
 .content {
@@ -43,4 +44,15 @@ h1, h2, h3, h4 {
 
 .recipe h1 a, .recipe h1 a:visited {
 	color: #000000;
+}
+
+.searchformgroup {
+	margin-left: 30px;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.recipe-results {
+	font-size: 16pt;
+	margin-left: 30px;
 }
