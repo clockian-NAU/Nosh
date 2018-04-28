@@ -6,4 +6,7 @@ urlpatterns = [
 	url(r'^recipe/(?P<pk>\d+)/$', views.recipe_detail, name='recipe_detail'),
 	url(r'^recipe/new/$', views.recipe_new, name='recipe_new'),
 	url(r'^recipe/(?P<pk>\d+)/edit/$', views.recipe_edit, name='recipe_edit'),
+	url(r'^recipe/login/$', views.login, name='login'),
+	#url('^', include('django.contrib.auth.urls')),
+	#path('accounts/', include('django.contrib.auth.urls')),
 ]

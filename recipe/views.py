@@ -4,6 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 from .models import Recipe
 from .forms import RecipeForm
+from django.contrib.auth import authenticate, login
 
 # Create your views here.
 def recipe_list(request):
@@ -42,3 +43,9 @@ def recipe_edit(request, pk):
 	else:
 		form = RecipeForm(instance=recipe)
 	return render(request, 'recipe/recipe_edit.html', {'form': form})
+
+def login(request):
+	username = request.POST['username']
+	password = request.POST['password']
+	user = authenticate(username=username, password=password)
+	login(request,user)
