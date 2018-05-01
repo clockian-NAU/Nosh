@@ -4,6 +4,10 @@ from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 from .models import Recipe
 from .forms import RecipeForm
+from django.contrib.auth import authenticate, login
+from django.core.urlresolvers import reverse
+from django.contrib.auth.views import login
+from django.contrib.auth.forms import AuthenticationForm
 from django.db.models import Q
 import operator
 import re
@@ -46,6 +50,17 @@ def recipe_edit(request, pk):
 		form = RecipeForm(instance=recipe)
 	return render(request, 'recipe/recipe_edit.html', {'form': form})
 
+def loginView(request):
+	if request.method == 'POST':
+		form = AuthenticationForm(data=request.POST)
+		if form.is_valid():
+			user = form.get_user()
+			login(request,user)
+			return redirect('recipe_list.html')
+	else:
+		form = AuthenticationForm()
+		return render(request, 'login.html',{'form':form})
+
 def search(request):
 	query_string = ''
 	found_entries = None
@@ -79,3 +94,4 @@ def get_query(query_string, search_fields):
 		else:
 			query = query & or_query
 	return query
+
