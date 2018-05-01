@@ -1,5 +1,4 @@
 from django.db import models
-from updown.fields import RatingField
 from django.utils import timezone
 
 class Recipe(models.Model):
@@ -10,7 +9,6 @@ class Recipe(models.Model):
 	photo = models.ImageField()
 	created_date = models.DateTimeField(default=timezone.now)
 	published_date = models.DateTimeField(blank=True, null=True)
-	rating = RatingField(can_change_vote=True)
 
 	def publish(self):
 		self.publish_date = timezone.now()
