@@ -21,5 +21,4 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'', include('recipe.urls'),name='home'),
     url(r'accounts/', include('django.contrib.auth.urls')),
-    #path('accounts/', include('django.contrib.auth.urls')),
 ]
