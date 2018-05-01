@@ -1,0 +1,10 @@
+{% extends 'recipe/base.html' %}
+
+{% block content %}
+	<h3>Search results for: {{ query_string }}</h3>
+	{% for entry in found_entries %}
+		<div class="recipe-results">
+			<p><a href="{% url 'recipe_detail' pk=entry.pk %}">{{ entry|linebreaksbr }}</p>
+		</div>
+	{% endfor %}
+{% endblock %}

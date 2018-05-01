@@ -1,3 +1,4 @@
+"""
 from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
@@ -16,6 +17,7 @@ class ViewsIntegrationTest(LiveServerTestCase):
 		self.selenuim.quit()
 
 	def test_register(self):
+		
 		selenium = self.selenium
 
 		selenium.get('http://127.0.0.1:8000/admin/')
@@ -28,3 +30,4 @@ class ViewsIntegrationTest(LiveServerTestCase):
 		user_name.send_keys('clock')
 		password.send_keys('clock383')
 		log_in.send_keys(Keys.RETURN)
+		"""
