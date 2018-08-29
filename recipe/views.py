@@ -12,7 +12,6 @@ from django.db.models import Q
 import operator
 import re
 
-# Create your views here.
 def recipe_list(request):
 	recipes = Recipe.objects.filter(published_date__lte=timezone.now()).order_by('published_date')
 	return render(request, 'recipe/recipe_list.html', {'recipes': recipes})
@@ -49,17 +48,6 @@ def recipe_edit(request, pk):
 	else:
 		form = RecipeForm(instance=recipe)
 	return render(request, 'recipe/recipe_edit.html', {'form': form})
-
-def loginView(request):
-	if request.method == 'POST':
-		form = AuthenticationForm(data=request.POST)
-		if form.is_valid():
-			user = form.get_user()
-			login(request,user)
-			return redirect('recipe_list.html')
-	else:
-		form = AuthenticationForm()
-		return render(request, 'login.html',{'form':form})
 
 def search(request):
 	query_string = ''
