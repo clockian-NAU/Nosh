@@ -4,7 +4,7 @@ from django.shortcuts import render, get_object_or_404
 from django.shortcuts import redirect
 from .models import Recipe
 from .forms import RecipeForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.core.urlresolvers import reverse
 from django.contrib.auth.views import login
 from django.contrib.auth.forms import AuthenticationForm
@@ -82,4 +82,8 @@ def get_query(query_string, search_fields):
 		else:
 			query = query & or_query
 	return query
+
+def logout_view(request):
+	logout(request)
+	return redirect('recipe_list')
 
