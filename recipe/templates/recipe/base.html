@@ -10,10 +10,14 @@
 
 	<body>
 		<div class="page-header">
-			<a href="{% url 'login_user' %}" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>
+			
 			{% if user.is_authenticated %}
+				<a href="{% url 'logout_user' %}" class="top-menu"><span class="glyphicon glyphicon-share-alt"></span>Logout</a>
 				<a href="{% url 'recipe_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+				{% else %}
+					<a href="{% url 'login_user' %}" class="top-menu"><span class="glyphicon glyphicon-user"></span></a>
 			{% endif %}
+
 			<h1><a href="/">Nosh</a></h1>
 			<div class="searchformgroup">
 				
